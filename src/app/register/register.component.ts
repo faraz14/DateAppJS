@@ -21,7 +21,7 @@ model: any = {};
 
   cancel() {
     console.log('cancel');
-    this.cancelRegister.emit(false);
+    this.cancelRegister.emit( false);
   }
   register() {
     this.authService.register(this.model).subscribe(next => {

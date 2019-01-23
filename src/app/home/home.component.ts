@@ -13,19 +13,12 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getValues();
-  }
+   }
 
   registerToggle() {
     this.registerMode = true;
   }
-  getValues() {
-    this.http.get('http://localhost:44334/api/values').subscribe(responce => {
-      this.values = responce;
-    }, error => {
-      console.log(error);
-    });
-  }
+ 
   // tslint:disable-next-line:member-ordering
   debugger;
   cancelRegisterMode(registerMode: boolean) {
