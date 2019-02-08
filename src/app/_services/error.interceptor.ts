@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpErrorResponse} from '@angular/common/http';
+import {HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpErrorResponse, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators';
 
@@ -13,8 +13,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                         if (applicationError) {
                             return throwError(applicationError);
                     }
-                }
+                } 
             })
         );
     }
 }
+
+export const ErrorInterceptorProvide = {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+};

@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   baseUrl = 'https://localhost:44334/api/auth/';
   constructor(private http: HttpClient) {}
-
+debugger;
   login(model: any) {
     return this.http.post(this.baseUrl + 'login', model).pipe(
       map((response: any) => {
